@@ -4,9 +4,35 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles/style.css') }}">
     <title>My Tasks</title>
 </head>
 <body>
-    
+    <div class="container">
+        <h1>My Tasks</h1>
+        <form action="/" method="post">
+            <input type="text" name="task" placeholder="Enter Your Task">
+            <button type="Submit">Add Task</button>
+        </form>
+        <div class="list">
+            {% for task in tasks %}
+                
+            <div class="task">
+                <p class="content">{{task.text}}</p>
+                <a href="/delete/{{task.sno}}"><svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <rect width="60" height="60" fill="url(#pattern0)"/>
+                    <defs>
+                    <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
+                    <use xlink:href="#image0_2_25" transform="scale(0.0104167)"/>
+                    </pattern>
+                    <image id="image0_2_25" width="96" height="96" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAABmJLR0QA/wD/AP+gvaeTAAABrUlEQVR4nO3cO0pEMRxG8RMfne7BWnAZ2ugu3IilnYhYugxBXYaFWopLUDsHYuEUMo2PJH535Pzq4T+5OYR5XLggSZIkSRNSaz2q7Y7T17GUOm2+EX6j8+Yb4ScGbf5kI5TWAbXW2mMhy6qU0rSHK70Wot8xQJgBwgwQZoAwA4QZQJIkSZL+WPP9gEX//f5A6///i/wlHGaAMAOEGSDMAGEGCDNA2Fp6AV99r279XTF6fitPQJgBwgwQZoAwA4QZIMwAYQYIM0CYAcIMEGaAMAOEGSDMAGEGCDNAmAHCDBBmgDADhBkgzABhBggzQJgBwgwQZoAwA4QZIMwAYQYIM0CYAcIMEGaAMAOEGSDMAGEGCDNAmAHCDBA24lkRL8Dmd188+lkNnec/d5wFjDkBTwNmTkX3axsR4GbAzKm46j1wxGMrt4FbYLX37LAZsFNKeeg5tPsJKKXcAee9507AWe/NhwEnAKDWug5cArsj5gfcAAellLfeg4d8DZ0vdB845ePoLqsZcMKgzYdBJ+Cz+WfCIbAHbAEbo9+z0SvwCFwDF6WU+/B6JEmSJP0z7/qmhRZZdvDKAAAAAElFTkSuQmCC"/>
+                    </defs>
+                    </svg>
+                    </a>
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
 </body>
 </html>
